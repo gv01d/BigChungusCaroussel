@@ -1,0 +1,136 @@
+body {
+    margin: 0px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Parent Div */
+.carosel {
+    /* CAN CUSTOMIZE WIDTH*/
+    width: 800px;
+    min-height: 100px;
+    height: fit-content;
+    background-color: #010315;
+    /*border: #0CA789 dashed 2px;*/
+    justify-content: center;
+    overflow: hidden;
+    display: flex;
+}
+
+
+/* <------Card/Li Parent------> */
+.carousel-options {
+    min-height: 100px;
+    display: flex;
+    background-color: #010315;
+    /*border: #0CA789 dashed 2px;*/
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    left: 0px;
+}
+
+#caroussel {
+    padding: 0px;
+    width: 100%;
+    display: flex;
+    background-color: #010315;
+    /*border: #0CA789 dashed 2px;*/
+    list-style: none;
+    align-items: center;
+    gap: 10px;
+    width: fit-content;
+    justify-content: center;
+}
+
+#caroussel li {
+    /*border: #fff dashed 2px;*/
+    /* CAN CUSTOMIZE WIDTH AND HEIGHT*/
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    background: #034C75;
+    opacity: 0.3;
+}
+
+#caroussel li.Main {
+    background-color: white;
+}
+
+
+/* <------Buttons------> */
+.carosel button {
+    width: 0px;
+    z-index: 3;
+    visibility: visible;
+    background: none;
+    border: none;
+    color: #0CA789;
+    cursor: pointer;
+    /*border: #0CA789 dashed 2px;*/
+    position: relative;
+    padding: 0px;
+    overflow: visible;
+}
+
+.carosel button:hover {
+    color: #034C75;
+}
+
+#left {
+    position: relative;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    float: inline-start;
+    background-image: linear-gradient(to right, #010315, #15152218);
+}
+
+#left>span {
+    position: relative;
+    left: 5px;
+}
+
+#right {
+    position: relative;
+    right: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 100%;
+    background-image: linear-gradient(to left, #010315, #15152218);
+}
+
+#right>span {
+    position: relative;
+    right: 5px;
+}
+
+/*
+#<CardInsideLi>{
+    Deactivated card
+}
+
+.Main #<CardInsideLi> {
+    Activated card
+}
+*/
+
+
+
+
+/*BIG CHUNGUS*/
+#BIG {
+    margin: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
