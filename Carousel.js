@@ -1,4 +1,4 @@
-// V1.0.0
+//V1.0.1
 
 onload = () => {
     //Button Left
@@ -17,11 +17,22 @@ onload = () => {
     //Inicial Values
     let Wait = false;
     let Size = -1;
+
     //Find Number of Cards
     for (Size = 1; document.querySelector(`#caroussel>li:nth-child(${Size}n)`) != Lst; Size++);
     //Main card (class "M<value>" - 0 middle, -1 left, +1 right,can go from -99 to 99)
     let Main = parseInt(Size / 2) + (Size % 2) + parseInt(caroussel.className.substring(caroussel.className.lastIndexOf("M") + 1, caroussel.className.lastIndexOf("M-") + 3));
     document.querySelector(`#caroussel>li:nth-child(${Main}n)`).className = "Main";
+
+    //Size
+    let Gap = parseInt(window.getComputedStyle(Fst.parentElement).gap);
+    console.log(Gap);
+    let Offset = Gap + (document.querySelector(`#caroussel>li:nth-child(${Main - 1}n)`).clientWidth);
+    console.log(Offset);
+
+    if (Size % 2 == 0) {
+        Fst.style.margin = `0 0 0 ${Offset}px`;
+    }
 
     //Animation
     const Cgo = (x) => {
@@ -45,10 +56,8 @@ onload = () => {
         else {
             document.querySelector(`#caroussel>li:nth-child(${Main}n)`).className = " ";
             Wait = true;
-            let Gap = parseInt(window.getComputedStyle(Fst.parentElement).gap);
-            console.log(Gap);
-            let Offset = Gap + (document.querySelector(`#caroussel>li:nth-child(${Main - 1}n)`).clientWidth);
-            console.log(Offset);
+            Gap = parseInt(window.getComputedStyle(Fst.parentElement).gap);
+            Offset = Gap + (document.querySelector(`#caroussel>li:nth-child(${Main - 1}n)`).clientWidth);
             caroussel.animate(Cgo(Offset), CTiming).onfinish = () => {
                 let Lhtml = Lst.innerHTML;
                 for (let i = Size; i > 1; i--) {
@@ -84,7 +93,4 @@ onload = () => {
             };
         }
     });
-
-
-
 }
