@@ -10,5 +10,3 @@ example M-1,M0,M2,M-4
 
 You can also change the parent of all(div class="carosel" on this case) width and hight however you want
 
-Use the css "Change.css" for yor customizations and refrain from messing with "carousel.css"
-

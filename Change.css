@@ -8,8 +8,8 @@ body {
 }
 
 .carousel-options>#caroussel>li {
-    height: 300px;
-    width: 300px;
+    height: 200px;
+    width: 200px;
     background: #034C75;
     opacity: 0.8;
     overflow: hidden;
@@ -17,23 +17,26 @@ body {
 
 .carousel-options>#caroussel>.Main {
     /* Set min to li width and height*/
-    min-width: 300px;
-    min-height: 300px;
-    width: fit-content;
-    height: fit-content;
+    min-width: 200px;
+    min-height: 200px;
+    width: 250px;
+    height: 250px;
+    opacity: 1;
 }
 
 .carosel>.carousel-options {
-    height: 400px;
+    height: 100%;
     background-color: #010315;
 }
 
 .carosel {
-    width: 800px;
+    width: 900px;
     background-color: #010315;
     /* IMPORTANT */
     /* MAX HEIGHT OF ANY IMAGE ON THE CAROUSSEL*/
-    height: 400px;
+    height: 250px;
+    border: #010315 solid 10px;
+    border-radius: 10px;
 }
 
 .carosel>#Btn {
@@ -58,7 +61,18 @@ Deactivated card
 /*
 Activated card
 */
-.carousel-options>#caroussel>.Main>#TEST>img {
+#card{
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+.carousel-options>#caroussel>li>#card>img{
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+}
+.carousel-options>#caroussel>.Main>#card>img {
     width: 100%;
     height: 100%;
     aspect-ratio: 1/1;

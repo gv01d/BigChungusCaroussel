@@ -22,6 +22,7 @@
     width: 100%;
     overflow: hidden;
     left: 0px;
+    float: right;
 }
 
 #caroussel {
@@ -51,7 +52,7 @@
 /* <------Buttons------> */
 .carosel>#Btn {
     width: 0px;
-    z-index: 3;
+    z-index: 5;
     visibility: visible;
     background: none;
     border: none;
@@ -63,23 +64,30 @@
     overflow: visible;
 }
 
-.carosel #Btn:hover {
-    color: #034C75;
+.carosel #Btn>span>span:hover {
+    transform: scale(1.2);
+    z-index: 5;
+}
+.leftBtn{
+    float: left;
 }
 
 #left {
     position: relative;
     width: 50px;
     display: flex;
+    justify-content: center;
     align-items: center;
     height: 100%;
     float: inline-start;
-    background-image: linear-gradient(to right, #010315, #15152218);
+    z-index: 5;
+    float: left;
 }
 
 #left>span {
     position: relative;
     left: 5px;
+    z-index: 5;
 }
 
 #right {
@@ -88,12 +96,13 @@
     width: 50px;
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
     height: 100%;
-    background-image: linear-gradient(to left, #010315, #15152218);
+    z-index: 5;
 }
 
 #right>span {
     position: relative;
     right: 5px;
+    z-index: 5;
 }
