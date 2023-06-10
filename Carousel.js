@@ -1,4 +1,4 @@
-//V1.2.0
+//V1.2.1
 onload = () => {
     carousselLoad();
 }
@@ -68,6 +68,9 @@ var carousselLoad = () => {
     let STi = Nmain * 1;
     let start = STi;
     let STz = Nmain * 100;
+    let Rep = (document.querySelector(".carousel-options.Repeat") ? true : false)
+    let RepTiming = 100 * parseInt(caroussel.className.substring(caroussel.className.lastIndexOf("S") + 1, caroussel.className.lastIndexOf("S") + 3));
+
 
     //Animation Timing config
     const CTiming = {
@@ -85,9 +88,15 @@ var carousselLoad = () => {
     // variavel de repetiçao
     let t;
     let TO = true;
+    let Clicked = false;
+    let RepA;
 
     let scrollLeft = (btn, speedup) => {
-        let repeat = () => {
+        let repeat = (x) => {
+            if (x > 0) {
+                speedup = 1;
+                start = x;
+            }
             Gap = parseInt(window.getComputedStyle(Fst.parentElement).gap);
             caroussel.animate(Cgo(Pmain * Offset(-1)), CTiming).onfinish = () => {
                 for (let j = 0; j < Pmain; j++) {
@@ -116,10 +125,18 @@ var carousselLoad = () => {
                     });
                     start = STi;
                     Wait = false;
+                    if (Rep) {
+                        RepA = setTimeout(() => {
+                            if (!TO) {
+                                repeat(RepTiming);
+                            }
+                        }, RepTiming);
+                    }
                 }
             };
         }
         btn.onmousedown = function () {
+            clearTimeout(RepA);
             console.log("LeftButton Pressed");
             btn.style.color = "#034C75";
             if (Wait) {
@@ -142,7 +159,8 @@ var carousselLoad = () => {
                     { width: `${Start[0]}px`, height: `${Start[1]}px`, opacity: `${OpacityS}`, easing: "ease-out" }
                 ], ATiming).onfinish = () => {
                     document.querySelectorAll(".Main").forEach((e) => { e.className = " "; });
-                    repeat();
+                    Clicked = true;
+                    repeat(0);
                 }
             }
         }
@@ -151,15 +169,21 @@ var carousselLoad = () => {
             btn.style.color = "#0CA789"
         }
         btn.onmouseleave = function () {
-            TO = false;
-            btn.style.color = "#0CA789"
+            if (Clicked) {
+                TO = false;
+                btn.style.color = "#0CA789"
+            }
         }
 
     }
 
 
     let scrollRight = (btn, speedup) => {
-        let repeat = () => {
+        let repeat = (x) => {
+            if (x > 0) {
+                speedup = 1;
+                start = x;
+            }
             Gap = parseInt(window.getComputedStyle(Fst.parentElement).gap);
             caroussel.animate(Cgo(Pmain * -Offset(1)), CTiming).onfinish = () => {
                 for (let j = 0; j < Pmain; j++) {
@@ -188,11 +212,19 @@ var carousselLoad = () => {
                     });
                     start = STi;
                     Wait = false;
+                    if (Rep) {
+                        RepA = setTimeout(() => {
+                            if (!TO) {
+                                repeat(RepTiming);
+                            }
+                        }, RepTiming);
+                    }
                 }
             };
         }
 
         btn.onmousedown = function () {
+            clearTimeout(RepA);
             if (Wait) {
                 console.log("RightButton Error : Please Wait");
             }
@@ -214,6 +246,7 @@ var carousselLoad = () => {
                 ], ATiming).onfinish = () => {
                     document.querySelectorAll(".Main").forEach((e) => { e.className = " "; });
                     repeat();
+                    Clicked = true;
                 }
             };
             btn.onmouseup = function () {
@@ -221,8 +254,10 @@ var carousselLoad = () => {
                 btn.style.color = "#0CA789"
             }
             btn.onmouseleave = function () {
-                TO = false;
-                btn.style.color = "#0CA789"
+                if (Clicked) {
+                    TO = false;
+                    btn.style.color = "#0CA789"
+                }
             }
         }
     }
