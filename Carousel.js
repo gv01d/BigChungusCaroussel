@@ -1,4 +1,4 @@
-//V1.2.1
+//V1.2.2
 onload = () => {
     carousselLoad();
 }
@@ -26,7 +26,7 @@ var carousselLoad = () => {
     for (Size = 1; document.querySelector(`#caroussel>li:nth-child(${Size})`) != Lst; Size++);
 
     //Main card (class "P<value>" --- 0 middle, -1 left, +1 right,can go from -9 to 99)
-    let Main = parseInt(Size / 2) + (Size % 2) + parseInt(caroussel.className.substring(caroussel.className.lastIndexOf("P") + 1, caroussel.className.lastIndexOf("P") + 3));
+    let Main = parseInt(Size / 2) + (Size % 2) + parseInt(caroussel.className.substring(caroussel.className.lastIndexOf("P") + 1, caroussel.className.lastIndexOf("P") + 4));
     // Number of Main cards (class "N<value>" --- 1 = 1 main card , 2 = 2 main cards, 3 = 3 main cards,can go from 1 to 99)
     let Nmain = parseInt(caroussel.className.substring(caroussel.className.lastIndexOf("N") + 1, caroussel.className.lastIndexOf("N") + 3));
     // Number of cards to move (class "M<value>" --- 1 = 1 card, 2 = 2 cards, 3 = 3 cards,can go from 1 to 99)
@@ -68,8 +68,8 @@ var carousselLoad = () => {
     let STi = Nmain * 1;
     let start = STi;
     let STz = Nmain * 100;
-    let Rep = (document.querySelector(".carousel-options.Repeat") ? true : false)
-    let RepTiming = 100 * parseInt(caroussel.className.substring(caroussel.className.lastIndexOf("S") + 1, caroussel.className.lastIndexOf("S") + 3));
+    let Rep = (document.querySelector(".carousel-options>.S") ? true : false)
+    let RepTiming = 100 * parseInt(caroussel.className.substring(caroussel.className.lastIndexOf("S") + 1, caroussel.className.lastIndexOf("S") + 4));
 
 
     //Animation Timing config
