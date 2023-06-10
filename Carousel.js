@@ -68,7 +68,7 @@ var carousselLoad = () => {
     let STi = Nmain * 1;
     let start = STi;
     let STz = Nmain * 100;
-    let Rep = (document.querySelector(".carousel-options>.repeat") ? true : false)
+    let Rep = (document.querySelector(".carousel-options.repeat") ? true : false)
     let RepTiming = 100 * parseInt(caroussel.className.substring(caroussel.className.lastIndexOf("S") + 1, caroussel.className.lastIndexOf("S") + 4));
 
 
